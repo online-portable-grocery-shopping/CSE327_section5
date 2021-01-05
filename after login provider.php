@@ -1,62 +1,15 @@
-<?php
-/**
- * session_start()
- */
+ <?php
+
 session_start();
 
-if (isset($_POST['submit'])) 
-{
-	  include_once "connection.php";
+if (isset($_POST['submit'])) {
+	include_once "connection.php";
 
-    $uname=$_POST['username'];
-    $password=$_POST['psw'];
-
-    $sql = "SELECT A.ID, R.ROLE FROM USER_ROLE AS R , AUTH_USER AS A  WHERE A.ID = R.USER_ID AND A.EMAIL = '".$uname."'AND A.PASSWORD = '".$password."'
-limit 1";
-
-    $result = mysqli_query($conn,$sql);
-
-/*Mysql_num_row is counting table row*/
-    $count = mysqli_num_rows($result);
-
-/*If result matched $myusername and $mypassword, table row must be 1 row*/
-    if($count == 1)
-    {
-        $result = mysqli_fetch_array($result); /*get the result set from the query*/
-
-        $redirect = trim($result['ROLE']); /* get the redirect column's value*/
-        $user_id = $result['ID']; /* get the user_id column's value*/
-
-    if ($redirect == "admin")
-    {
-	      $_SESSION['USER_VALUE'] = $user_id;
-	      header("Location: after login admin.php");
-    
-	  }
-    elseif ($redirect=="provider")
-    {
-	      $_SESSION['USER_VALUE'] = $user_id;
-	      header("Location: after login provider.php");
-    
-	}
-
-
-    else if($redirect=="customer")
-    {
-	      $_SESSION['USER_VALUE'] = $user_id;
-	      header("Location: after login customer.php");
-	  }
-
-    exit;
-}
-else 
-{
-    header("Location: wrong password.html");
 }
 
-ob_end_flush();
-}
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -207,26 +160,27 @@ body
 </head>
 <body>
 
-<div class = "topnav">
-  	<a class = "active" href = "#home">Home</a>
-  	<a href = "about.html">About</a>
 
-	<div class = "login-container">
-	<form method = "POST" action = "index.php">
-      	<input type = "email" placeholder = "Email" name = "username">
-      	<input type = "text" placeholder = "Password" name = "psw">
-		<button type = "submit" name = "submit">Login</button>
+<div class = "topnav">
+  	<a class = "active" href="provider info.php">Provider Info</a>
+  	<a href = "order request provider.php">Order Requests</a> 
+	<a href = "update info provider.php">Update Info </a> 
+	<a href = "order done provider.php">Order Done </a> 
+	<?php
+if ( isset( $_SESSION['USER_VALUE'] ) ) 
+{
+	  $user_id = $_SESSION['USER_VALUE']; ?>
+	  <a href ="logout.php">Logout</a>
+	  <?php
+	}
+?>
+
+<div class = "login-container">
+	<form method = "POST" action = "immediatly done.php">
+      	<input type = "text" placeholder = "Total Order Number " name = "ordernumber">
+		<button type = "submit" name = "submit">Order Served</button>
 		</form>
 	</div>
-	
-	<div class = "signup-container">
-	<form method = "POST" action = "index.php">
-	<button type = "submit"><a href = "signup page provider.php">Signup Provider</a></button>
-	<button type = "submit"><a href = "signup page customer.php">Signup Customer</a></button>
-	</form>
-	</div>
-
-	
 <!-- Slide Show -->
 <section>
   <img class = "mySlides" src = "pic1.jpg" style = "width:100%">
@@ -235,7 +189,7 @@ body
 </section>
 
 <script>
-/* Automatic Slideshow - change image every 3 seconds*/
+// Automatic Slideshow - change image every 3 seconds
 var my_index = 0;
 carousel();
 
