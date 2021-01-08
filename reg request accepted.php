@@ -49,17 +49,3 @@ echo "Error: ";
 if ($conn->query($two) === TRUE) {
 header("Location: submitted.html");
 } else {
-echo "Error: ";
-}
-
-if ($conn->query($three) === TRUE) {
-header("Location: submitted.html");
-} else {
-echo "Error: ";
-}
-if ($conn->query($four) === TRUE) {
-header("Location: submitted.html");
-} else {
-echo "Error: ";
-}
-?>
