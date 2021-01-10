@@ -14,7 +14,7 @@ if (isset($_POST['submit']))
     $sql = "SELECT A.ID, R.ROLE FROM USER_ROLE AS R , AUTH_USER AS A  WHERE A.ID = R.USER_ID AND A.EMAIL = '".$uname."'AND A.PASSWORD = '".$password."'
 limit 1";
 
-    $result = mysqli_query($conn,$sql);
+    $result = mysqli_query($conn, $sql);
 
 /*Mysql_num_row is counting table row*/
     $count = mysqli_num_rows($result);
@@ -238,6 +238,10 @@ body
 /* Automatic Slideshow - change image every 3 seconds*/
 var my_index = 0;
 carousel();
+
+/**
+ * @return [type]
+ */
 
 function carousel() 
 {

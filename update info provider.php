@@ -6,10 +6,9 @@ if (isset($_POST['update']))
 session_start();
 if ( isset( $_SESSION['USER_VALUE'] ) ) 
 {
-    ///echo("USER_ID present\n");
+    
 	  $user_id = $_SESSION['USER_VALUE'];
-	  //echo $USER_ID;
-}
+	  
 else 
 {
 	  echo "ERROR:";
