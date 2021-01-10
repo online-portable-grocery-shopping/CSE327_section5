@@ -7,7 +7,8 @@ session_start();
 if ( isset( $_SESSION['USER_VALUE'] ) ) 
 {
     
-	  $user_id = $_SESSION['USER_VALUE'];
+      $user_id = $_SESSION['USER_VALUE'];
+}
 	  
 else 
 {
