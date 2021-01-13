@@ -204,10 +204,13 @@ if ( isset( $_SESSION['USER_VALUE'] ) )
 </section>
 
 <script>
-// Automatic Slideshow - change image every 3 seconds
+/* Automatic Slideshow - change image every 3 seconds*/
 var my_index = 0;
 carousel();
 
+/**
+ * @return [type]
+ */
 function carousel() 
 {
     var i;
