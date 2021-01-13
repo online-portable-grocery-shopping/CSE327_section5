@@ -8,13 +8,13 @@ if (isset($_POST['submit']))
 {
 	  include_once "connection.php";
 
-    $uname=$_POST['username'];
+    $email=$_POST['email'];
     $password=$_POST['psw'];
 
-    $sql = "SELECT A.ID, R.ROLE FROM USER_ROLE AS R , AUTH_USER AS A  WHERE A.ID = R.USER_ID AND A.EMAIL = '".$uname."'AND A.PASSWORD = '".$password."'
+    $sql = "SELECT A.ID, R.ROLE FROM USER_ROLE AS R , AUTH_USER AS A  WHERE A.ID = R.USER_ID AND A.EMAIL = '".$email."'AND A.PASSWORD = '".$password."'
 limit 1";
 
-    $result = mysqli_query($conn,$sql);
+    $result = mysqli_query($conn, $sql);
 
 /*Mysql_num_row is counting table row*/
     $count = mysqli_num_rows($result);
@@ -213,7 +213,7 @@ body
 
 	<div class = "login-container">
 	<form method = "POST" action = "index.php">
-      	<input type = "email" placeholder = "Email" name = "username">
+      	<input type = "email" placeholder = "Email" name = "email">
       	<input type = "text" placeholder = "Password" name = "psw">
 		<button type = "submit" name = "submit">Login</button>
 		</form>
@@ -238,6 +238,10 @@ body
 /* Automatic Slideshow - change image every 3 seconds*/
 var my_index = 0;
 carousel();
+
+/**
+ * @return [type]
+ */
 
 function carousel() 
 {
