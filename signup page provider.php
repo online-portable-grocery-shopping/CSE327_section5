@@ -4,21 +4,21 @@ if (isset($_POST['submit']))
 {
     include_once "connection.php";
 
-$first_name = $_POST['fstname'];
-$last_name = $_POST['lstname'];
-$user_name = $_POST['usrnm'];
-$email = $_POST['email'];
-$retype_pass= $_POST['retypepassword'];
-$password = $_POST['psw'];
-$gender = $_POST['gen'];
-$grocery_name = $_POST['gronme'];
-$contact = $_POST['mobilenum'];
-$nid = $_POST['nid'];
-$location = $_POST['locaton'];
-$avaiabl = $_POST['available'];
+    $first_name = $_POST['fstname'];
+    $last_name = $_POST['lstname'];
+    $user_name = $_POST['usrnm'];
+    $email = $_POST['email'];
+    $retype_pass= $_POST['retypepassword'];
+    $password = $_POST['psw'];
+    $gender = $_POST['gen'];
+    $grocery_name = $_POST['gronme'];
+    $contact = $_POST['mobilenum'];
+    $nid = $_POST['nid'];
+    $location = $_POST['locaton'];
+    $avaiabl = $_POST['available'];
 
 
-$tor = "INSERT INTO ADMINVIEW(USERTYPE,FIRSTNAME, LASTNAME, EMAIL, USERNAME, PASSWORD , RETYPEPASSWORD ,GENDER , CONTACT , LOCATION, NIDNUMBER , GROCERYNAME, TIME_FOR_GIVING_ORDER, TIME_OF_REG)
+    $tor = "INSERT INTO ADMINVIEW(USERTYPE,FIRSTNAME, LASTNAME, EMAIL, USERNAME, PASSWORD , RETYPEPASSWORD ,GENDER , CONTACT , LOCATION, NIDNUMBER , GROCERYNAME, TIME_FOR_GIVING_ORDER, TIME_OF_REG)
 
 VALUES ('provider','".$first_name."', '".$last_name."', '".$email."', '".$user_name."' , '".$password."', '".$retype_pass."' , '".$gender."' ,'".$contact."' , '".$location."', '".$nid."','".$grocery_name."','".$avaiabl."', NOW())";
 
@@ -301,6 +301,9 @@ hr
 
 <script>
 
+     /**
+      * @return [type]
+      */
      function validateForm() 
      {
           var username = document.getElementById("username").value;
@@ -431,6 +434,11 @@ for (i = 0; i < x.length; i++)
   }
   );
 }
+/**
+ * @param mixed elmnt
+ * 
+ * @return [type]
+ */
 function closeAllSelect(elmnt) 
 {
   /*a function that will close all select boxes in the document,

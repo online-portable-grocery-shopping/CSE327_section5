@@ -7,7 +7,7 @@ $db_name = 'groceryshop'; /* Database Name*/
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 if (!$conn) 
 {
-	die ('Failed to connect to MySQL: ' . mysqli_connect_error());	
+    die ('Failed to connect to MySQL: ' . mysqli_connect_error());	
 }
 session_start();
 if ( isset( $_SESSION['USER_VALUE'] ) ) 
@@ -16,7 +16,7 @@ if ( isset( $_SESSION['USER_VALUE'] ) )
 	$user_id = $_SESSION['USER_VALUE'];
 	
 }
-
+ 
 
 $sql = "(SELECT A.FIRSTNAME, A.LASTNAME, A.USERNAME, A.EMAIL, A.GENDER, A.ID, A.CONTACT , A.LOCATION, P.GROCERYNAME ,P.PRODUCTLIST, P.NIDNUMBER, P.TIME_FOR_GIVING_ORDER 
 		FROM PROVIDER AS P, AUTH_USER AS A  WHERE A.ID='".$user_id."' AND A.ID= P.USER_ID)";
@@ -28,8 +28,9 @@ if (!$query)
 {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
-
 ?>
+
+
 
 
 <html>

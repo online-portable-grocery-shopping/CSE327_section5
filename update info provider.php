@@ -15,6 +15,7 @@ else
 	  echo "ERROR:";
 }
 
+
 $first_name = $_POST['fstname'];
 $last_name = $_POST['lstname'];
 $user_name = $_POST['usrnm'];
@@ -312,7 +313,7 @@ hr
     <p>By creating an account you agree to our <a href = "#" style = "color:dodgerblue">Terms & Privacy</a>.</p>
 	<center>      <div class = "clearfix">
         <button type = "button" onclick = "document.getElementById('id01').style.display = 'none'" class = "cancelbtn">Cancel</button>
-         <button type = "submit" class = "signupbtn" name = "update">Sign Up</button>
+         <button type = "submit" class = "signupbtn" name = "update">Update</button>
      </div>
     </div>
   </form>
@@ -320,6 +321,9 @@ hr
 
 <script>
 
+     /**
+      * @return [type]
+      */
      function validateForm() 
      {
         var username = document.getElementById("username").value;
@@ -450,6 +454,11 @@ for (i = 0; i < x.length; i++)
   }
   );
 }
+/**
+ * @param mixed elmnt
+ * 
+ * @return [type]
+ */
 function closeAllSelect(elmnt) 
 {
   /*a function that will close all select boxes in the document,
