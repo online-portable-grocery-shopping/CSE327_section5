@@ -36,14 +36,14 @@ if (!$query)
 <html>
 <head>
 	<title>DISPLAYING MY INFORMATION</title>
-	<link rel="stylesheet" type="text/css" href="styleTable.css">
+	<link rel = "stylesheet" type = "text/css" href = "styleTable.css">
 	
 </head>
 
 <body>
 <h1>Table 1</h1>
-	<table class="data-table">
-		<caption class="title">MY INFO </caption>
+	<table class = "data-table">
+		<caption class = "title">MY INFO </caption>
 		<thead>
 			<tr>
 			    <th>No</th>
@@ -60,8 +60,8 @@ if (!$query)
 		</thead>
 		<tbody>
 		<?php
-		$no 	= 1;
-		$total 	= 0;
+		$no = 1;
+		$total = 0;
 		while ($row = mysqli_fetch_array($query))
 		{
 			
@@ -79,7 +79,8 @@ if (!$query)
 					
 				</tr>';
 			$no++;
-		}?>
+		}
+		?>
 		</tbody>
 	</table>
 		
