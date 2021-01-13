@@ -5,13 +5,15 @@ $db_pass = ''; /* Password*/
 $db_name = 'groceryshop'; /* Database Name*/
 
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-if (!$conn) {
+if (!$conn) 
+{
 	die ('Failed to connect to MySQL: ' . mysqli_connect_error());	
 }
 
 session_start();
 
-if ( isset( $_SESSION['USER_VALUE'] ) ) {
+if ( isset( $_SESSION['USER_VALUE'] ) ) 
+{
 	$USER_ID =$_SESSION['USER_VALUE'];
 	
 }
@@ -37,7 +39,7 @@ echo $three;
 
 $four = "DELETE 
  FROM ADMINVIEW WHERE ADMINVIEW.ID = '".$idnumber."'";
-//echo $tr;
+/*echo $tr;*/
 
 if ($conn->query($tw) === TRUE) 
 {
