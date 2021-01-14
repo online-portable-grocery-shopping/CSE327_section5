@@ -41,9 +41,9 @@ CREATE TABLE ADMINVIEW (
   )ENGINE=InnoDB DEFAULT CHARSET=latin1; 
   
  INSERT INTO ADMINVIEW (USERTYPE,FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWORD, GENDER, CONTACT ,LOCATION, NIDNUMBER,GROCERYNAME,TIME_FOR_GIVING_ORDER ,TIME_OF_REG) VALUES
- ('provider','sayem', 'mahmud', 'sayem.mahmud97@gmail.com', 'sayem', '@@@@@@@@@@@sam', '@@@@@@@@@@@sam','MALE' , '01626909723', 'Bashundhara','345','nila','sat-sun','19-04-2020'),
+ ('provider','sayem', 'mahmud', 'sayem.mahmud97@gmail.com', 'sayem', '@@@@@@@@@@@sam', '@@@@@@@@@@@sam','MALE' , '01626909723', 'Bashundhara','345','nila','sat-sun','19-11-2020'),
  ('customer','Farah', 'Tasnur', 'farah.tasnur@gmail.com', 'Farah Tasnur', 'farah','farah','FEMALE','01736372345' , 'Norda','','','',''),
- ('provider','sayem', 'mahmud', 'sayem.mah@northsouth.edu', 'saymm', 'sayem', 'sayem','MALE' , '01626909723', 'Bashundhara','345','nila','sat-sun','19-04-2020');
+ ('provider','sayem', 'mahmud', 'sayem.mah@northsouth.edu', 'saymm', 'sayem', 'sayem','MALE' , '01626909723', 'Bashundhara','345','nila','sat-sun','19-11-2020');
 
  CREATE TABLE AUTH_USER (
   ID int(11) NOT NULL AUTO_INCREMENT,
@@ -62,7 +62,9 @@ CREATE TABLE ADMINVIEW (
 
 INSERT INTO AUTH_USER (FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWORD, GENDER, CONTACT ,LOCATION) VALUES
  
- ('Nur', 'Rahman', 'nur.rahman@gmail.com', 'Nur', 'nur','nur','MALE','01736372345' , 'khilgaon');
+ ('Nur', 'Rahman', 'nur.rahman@gmail.com', 'Nur', 'nur','nur','MALE','01736372345' , 'khilgaon'),
+ ('tasfiq', 'mahmud', 'tasfiq.mahmud@gmail.com', 'tasfiq', 'tasfiq', 'tasfiq','MALE' , '01626909723', 'Bashundhara'),
+ ('hasib', 'ahmed', 'hasib.ahmed@gmail.com', 'hasib', 'hasib', 'hasib','MALE' , '01626909756', 'Badda');
  
  CREATE TABLE PROVIDER (
   ID int(11) NOT NULL AUTO_INCREMENT,
@@ -76,6 +78,9 @@ INSERT INTO AUTH_USER (FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWO
   
   
   )ENGINE=InnoDB DEFAULT CHARSET=latin1; 
+  
+  INSERT INTO PROVIDER(USER_ID,NIDNUMBER, GROCERYNAME, PRODUCTLIST, TIME_FOR_GIVING_ORDER) VALUES
+  (2,'347','yoyo', 'alu-poratha', 'sat-mon');
 
 
   
@@ -89,7 +94,9 @@ INSERT INTO AUTH_USER (FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWO
   )ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
   INSERT INTO USER_ROLE (USER_ID,ROLE) VALUES
-  (1,'admin');
+  (1,'admin'),
+  (2,'provider'),
+  (3,'customer');
   
   
   CREATE TABLE ORDERLIST (
@@ -103,6 +110,9 @@ INSERT INTO AUTH_USER (FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWO
   FOREIGN KEY(CUSTOMER_USER_ID)REFERENCES AUTH_USER(ID)
   
    )ENGINE=InnoDB DEFAULT CHARSET=latin1; 
+
+   INSERT INTO ORDERLIST (PROVIDER_USER_ID, CUSTOMER_USER_ID, PRODUCT,GIVEN_ORDER_DATE) VALUES
+   (2, 3, 'alu-parata', '18-01-2021' );
    
    
    CREATE TABLE DONEORDER (
@@ -116,7 +126,11 @@ INSERT INTO AUTH_USER (FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWO
   FOREIGN KEY(PROVIDER_USER_ID)REFERENCES AUTH_USER(ID),
   FOREIGN KEY(CUSTOMER_USER_ID)REFERENCES AUTH_USER(ID)
   )ENGINE=InnoDB DEFAULT CHARSET=latin1;
- COMMIT;
+ 
+  INSERT INTO DONEORDER (DONE_ORDER_NUMBER,PROVIDER_USER_ID, CUSTOMER_USER_ID, PRODUCT,GIVEN_ORDER_DATE) VALUES
+   (2, 2, 3, 'aluvegetables', '18-01-2021' );
+
+   COMMIT;
  
  /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

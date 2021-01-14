@@ -5,7 +5,7 @@ final class valueinfo extends TestCase
     public function testCanBeCreatedFromValidReturnValue2()
     {   
         require 'testing update.php' ;
-        $this->assertEquals(true, UPDATE(3));       
+        $this->assertEquals(true, UPDATE(2));       
  
     }
 

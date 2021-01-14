@@ -8,8 +8,8 @@ if (isset($_POST['submit']))
 {
 	  include_once "connection.php";
 
-    $email=$_POST['email'];
-    $password=$_POST['psw'];
+    $email = $_POST['email'];
+    $password = $_POST['psw'];
 
     $sql = "SELECT A.ID, R.ROLE FROM USER_ROLE AS R , AUTH_USER AS A  WHERE A.ID = R.USER_ID AND A.EMAIL = '".$email."'AND A.PASSWORD = '".$password."'
 limit 1";

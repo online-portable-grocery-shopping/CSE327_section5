@@ -1,19 +1,30 @@
 <?php
-$db_host = "localhost:3307"; /* Server Name*/
-$db_user = 'root'; /* Username*/
-$db_pass = ''; /* Password*/
-$db_name = 'groceryshop'; /* Database Name*/
 
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-if (!$conn) 
-{
-	die ('Failed to connect to MySQL: ' . mysqli_connect_error());	
-}
 session_start();
 if ( isset( $_SESSION['USER_VALUE'] ) )
 {
     $user_id = $_SESSION['USER_VALUE'];
-	//echo $USER_ID;
+	
+}
+
+ORDERREQ($user_id);
+$query1 = ORDERREQ($user_id);
+/**
+ * @param int $user_id
+ * 
+ * @return [type]
+ */
+function ORDERREQ(int $user_id)
+{
+	$db_host = "localhost:3307"; /* Server Name*/
+    $db_user = 'root'; /* Username*/
+    $db_pass = ''; /* Password*/
+    $db_name = 'groceryshop'; /* Database Name*/
+
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+if (!$conn) 
+{
+    die ('Failed to connect to MySQL: ' . mysqli_connect_error());	
 }
 
 $sql = "(SELECT O.ID, O.PROVIDER_USER_ID, O.CUSTOMER_USER_ID ,O.PRODUCT, O.GIVEN_ORDER_DATE ,U.USERNAME, U.CONTACT, U.LOCATION
@@ -27,6 +38,11 @@ $query = mysqli_query($conn, $sql);
 if (!$query) 
 {
 	die ('SQL Error: ' . mysqli_error($conn));
+}
+else
+{
+	return $query ; 
+}
 }
 
 ?>
@@ -61,7 +77,7 @@ if (!$query)
 		<?php
 		$no = 1;
 		$total = 0;
-		while ($row = mysqli_fetch_array($query))
+		while ($row = mysqli_fetch_array($query1))
 		{
 			echo '<tr>
 					<td>'.$no.'</td>

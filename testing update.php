@@ -16,7 +16,7 @@ $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 {
 	die ('Failed to connect to MySQL: ' . mysqli_connect_error());	
 }
-$first_name = "tasfiq";
+$first_name = "tasfik";
 $last_name = "mahmud";
 $user_name = "tasfig mahmud";
 $email = "tasfiq.mahmud@gmail.com";
