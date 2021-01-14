@@ -42,7 +42,7 @@ CREATE TABLE ADMINVIEW (
   
  INSERT INTO ADMINVIEW (USERTYPE,FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWORD, GENDER, CONTACT ,LOCATION, NIDNUMBER,GROCERYNAME,TIME_FOR_GIVING_ORDER ,TIME_OF_REG) VALUES
  ('provider','sayem', 'mahmud', 'sayem.mahmud97@gmail.com', 'sayem', '@@@@@@@@@@@sam', '@@@@@@@@@@@sam','MALE' , '01626909723', 'Bashundhara','345','nila','sat-sun','19-11-2020'),
- ('customer','Farah', 'Tasnur', 'farah.tasnur@gmail.com', 'Farah Tasnur', 'farah','farah','FEMALE','01736372345' , 'Norda','','','',''),
+ ('customer','Farah', 'Tasnur', 'farah.t@gmail.com', 'Farah Tasnur', 'farah','farah','FEMALE','01736372345' , 'Norda','','','',''),
  ('provider','sayem', 'mahmud', 'sayem.mah@northsouth.edu', 'saymm', 'sayem', 'sayem','MALE' , '01626909723', 'Bashundhara','345','nila','sat-sun','19-11-2020');
 
  CREATE TABLE AUTH_USER (
@@ -64,7 +64,8 @@ INSERT INTO AUTH_USER (FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWO
  
  ('Nur', 'Rahman', 'nur.rahman@gmail.com', 'Nur', 'nur','nur','MALE','01736372345' , 'khilgaon'),
  ('tasfiq', 'mahmud', 'tasfiq.mahmud@gmail.com', 'tasfiq', 'tasfiq', 'tasfiq','MALE' , '01626909723', 'Bashundhara'),
- ('hasib', 'ahmed', 'hasib.ahmed@gmail.com', 'hasib', 'hasib', 'hasib','MALE' , '01626909756', 'Badda');
+ ('hasib', 'ahmed', 'hasib.ahmed@gmail.com', 'hasib', 'hasib', 'hasib','MALE' , '01626909756', 'Badda'),
+ ('Farah', 'Tasnur', 'farah.tasnur@gmail.com', 'Farah Tasnur', 'farah','farah','FEMALE','01736372345' , 'Bata signal');
  
  CREATE TABLE PROVIDER (
   ID int(11) NOT NULL AUTO_INCREMENT,
@@ -96,7 +97,8 @@ INSERT INTO AUTH_USER (FIRSTNAME,LASTNAME,EMAIL,USERNAME,PASSWORD,  RETYPEPASSWO
   INSERT INTO USER_ROLE (USER_ID,ROLE) VALUES
   (1,'admin'),
   (2,'provider'),
-  (3,'customer');
+  (3,'customer'),
+  (4,'customer');
   
   
   CREATE TABLE ORDERLIST (
